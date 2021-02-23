@@ -17,7 +17,8 @@ start_update(){
 	
 	echo ==================================================================================================
 	echo_date 开始更新shadowsocks规则，请等待...
-	wget --no-check-certificate --timeout=8 -qO - "$url_main"/version1 > /tmp/ss_version
+	# wget --no-check-certificate --timeout=8 -qO - "$url_main"/version1 > /tmp/ss_version
+	curl -skL "$url_main"/version1 > /tmp/ss_version
 	if [ "$?" == "0" ]; then
 		echo_date 检测到在线版本文件，继续...
 	else
